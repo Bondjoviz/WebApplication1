@@ -1,0 +1,90 @@
+﻿@model List<Divisions>
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Index</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Division ID</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="divisionId">
+       
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Division Name</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="divisionName">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+@*<form method="post">
+    Division ID:
+    <input type="text" name="divisionId" />
+
+    Division Name:
+    <input type="text" name="divisionName" />
+
+    <input type="submit" value="Search" />
+</form>*@
+
+@*@if (Model !=null)
+{
+    foreach (var division in Model)
+    {
+        
+        @division.DivisionId;
+
+    }
+}*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Division ID</th>
+            <th scope="col">Division Name</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var division in Model)
+            {
+                <tr>
+                    <td>@division.DivisionId</td>
+                    <td>@division.DivisionName</td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+
+@*<table>
+    <tr>
+        <td>Division ID</td>
+        <td>Division Name</td>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var division in Model)
+        {
+            <tr>
+                <td>@division.DivisionId</td>
+                <td>@division.DivisionName</td>
+            </tr>
+
+        }
+    }
+
+    <tr>
+        <td>1</td>
+        <td>Division Name1</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>Division Name2</td>
+    </tr>
+
+</table>*@

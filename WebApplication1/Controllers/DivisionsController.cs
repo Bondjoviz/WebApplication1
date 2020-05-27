@@ -10,16 +10,27 @@ namespace WebApplication1.Controllers
 {
     public class DivisionsController : Controller
     {
-        
+        [HttpGet]
         public IActionResult Index()
         {
-            TestContext context = new TestContext();
-            var divisions = context.Divisions.ToList();
-            
+           
 
-            return Json(divisions);
+            return View();
             
         }
+        [HttpPost]
+        public IActionResult Index(string divisionId,string divisionName)
+        {
+            TestContext context = new TestContext();
+            var division = context.Divisions
+                                    .Where(d => d.DivisionId.ToString().Contains(divisionId)
+                                    && d.DivisionName.Contains(divisionName))
+                                    .ToList();
+
+            return View(division);
+
+        }
+
 
         [HttpGet]
         public IActionResult Insert()
